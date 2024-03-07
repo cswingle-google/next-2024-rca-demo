@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package hipstershop;
+package cymbalshop;
 
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
-import hipstershop.Demo.Ad;
-import hipstershop.Demo.AdRequest;
-import hipstershop.Demo.AdResponse;
+import cymbalshop.Demo.Ad;
+import cymbalshop.Demo.AdRequest;
+import cymbalshop.Demo.AdResponse;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.StatusRuntimeException;
@@ -81,7 +81,7 @@ public final class AdService {
     }
   }
 
-  private static class AdServiceImpl extends hipstershop.AdServiceGrpc.AdServiceImplBase {
+  private static class AdServiceImpl extends cymbalshop.AdServiceGrpc.AdServiceImplBase {
 
     /**
      * Retrieves ads based on context provided in the request {@code AdRequest}.

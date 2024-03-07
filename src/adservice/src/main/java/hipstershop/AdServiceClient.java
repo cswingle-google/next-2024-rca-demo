@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package hipstershop;
+package cymbalshop;
 
-import hipstershop.Demo.Ad;
-import hipstershop.Demo.AdRequest;
-import hipstershop.Demo.AdResponse;
+import cymbalshop.Demo.Ad;
+import cymbalshop.Demo.AdRequest;
+import cymbalshop.Demo.AdResponse;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -34,7 +34,7 @@ public class AdServiceClient {
   private static final Logger logger = LogManager.getLogger(AdServiceClient.class);
 
   private final ManagedChannel channel;
-  private final hipstershop.AdServiceGrpc.AdServiceBlockingStub blockingStub;
+  private final cymbalshop.AdServiceGrpc.AdServiceBlockingStub blockingStub;
 
   /** Construct client connecting to Ad Service at {@code host:port}. */
   private AdServiceClient(String host, int port) {
@@ -49,7 +49,7 @@ public class AdServiceClient {
   /** Construct client for accessing RouteGuide server using the existing channel. */
   private AdServiceClient(ManagedChannel channel) {
     this.channel = channel;
-    blockingStub = hipstershop.AdServiceGrpc.newBlockingStub(channel);
+    blockingStub = cymbalshop.AdServiceGrpc.newBlockingStub(channel);
   }
 
   private void shutdown() throws InterruptedException {

@@ -183,8 +183,8 @@ spec:
     to:
     - operation:
         paths:
-        - /hipstershop.ProductCatalogService/GetProduct
-        - /hipstershop.ProductCatalogService/ListProducts
+        - /cymbalshop.ProductCatalogService/GetProduct
+        - /cymbalshop.ProductCatalogService/ListProducts
         methods:
         - POST
         ports:

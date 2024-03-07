@@ -20,12 +20,12 @@ const charge = require('./charge');
 
 const logger = require('./logger')
 
-class HipsterShopServer {
-  constructor(protoRoot, port = HipsterShopServer.PORT, always_error = false) {
+class cymbalShopServer {
+  constructor(protoRoot, port = cymbalShopServer.PORT, always_error = false) {
     this.port = port;
 
     this.packages = {
-      hipsterShop: this.loadProto(path.join(protoRoot, 'demo.proto')),
+      cymbalShop: this.loadProto(path.join(protoRoot, 'demo.proto')),
       health: this.loadProto(path.join(protoRoot, 'grpc/health/v1/health.proto'))
     };
 
@@ -84,25 +84,25 @@ class HipsterShopServer {
   }
 
   loadAllProtos(protoRoot) {
-    const hipsterShopPackage = this.packages.hipsterShop.hipstershop;
+    const cymbalShopPackage = this.packages.cymbalShop.cymbalshop;
     const healthPackage = this.packages.health.grpc.health.v1;
 
     this.server.addService(
-      hipsterShopPackage.PaymentService.service,
+      cymbalShopPackage.PaymentService.service,
       {
-        charge: HipsterShopServer.ChargeServiceHandler.bind(this)
+        charge: cymbalShopServer.ChargeServiceHandler.bind(this)
       }
     );
 
     this.server.addService(
       healthPackage.Health.service,
       {
-        check: HipsterShopServer.CheckHandler.bind(this)
+        check: cymbalShopServer.CheckHandler.bind(this)
       }
     );
   }
 }
 
-HipsterShopServer.PORT = process.env.PORT;
+cymbalShopServer.PORT = process.env.PORT;
 
-module.exports = HipsterShopServer;
+module.exports = cymbalShopServer;

@@ -20,7 +20,7 @@ namespace cartservice.cartstore
     {
         Task AddItemAsync(string userId, string productId, int quantity);
         Task EmptyCartAsync(string userId);
-        Task<Hipstershop.Cart> GetCartAsync(string userId);
+        Task<cymbalshop.Cart> GetCartAsync(string userId);
         bool Ping();
     }
 }

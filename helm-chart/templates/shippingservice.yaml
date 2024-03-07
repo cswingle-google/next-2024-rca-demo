@@ -153,8 +153,8 @@ spec:
     to:
     - operation:
         paths:
-        - /hipstershop.ShippingService/GetQuote
-        - /hipstershop.ShippingService/ShipOrder
+        - /cymbalshop.ShippingService/GetQuote
+        - /cymbalshop.ShippingService/ShipOrder
         methods:
         - POST
         ports:

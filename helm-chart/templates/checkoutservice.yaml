@@ -190,7 +190,7 @@ spec:
     to:
     - operation:
         paths:
-        - /hipstershop.CheckoutService/PlaceOrder
+        - /cymbalshop.CheckoutService/PlaceOrder
         methods:
         - POST
         ports:

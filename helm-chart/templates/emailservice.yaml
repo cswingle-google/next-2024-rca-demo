@@ -175,7 +175,7 @@ spec:
     to:
     - operation:
         paths:
-        - /hipstershop.EmailService/SendOrderConfirmation
+        - /cymbalshop.EmailService/SendOrderConfirmation
         methods:
         - POST
         ports:

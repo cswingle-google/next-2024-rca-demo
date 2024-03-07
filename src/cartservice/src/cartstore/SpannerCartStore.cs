@@ -102,10 +102,10 @@ namespace cartservice.cartstore
         }
 
 
-        public async Task<Hipstershop.Cart> GetCartAsync(string userId)
+        public async Task<cymbalshop.Cart> GetCartAsync(string userId)
         {
             Console.WriteLine($"GetCartAsync called for userId={userId}");
-            Hipstershop.Cart cart = new();
+            cymbalshop.Cart cart = new();
             try
             {
                 using SpannerConnection spannerConnection = new(databaseString);
@@ -124,7 +124,7 @@ namespace cartservice.cartstore
                     // An empty cart has no userId attached.
                     cart.UserId = userId;
 
-                    Hipstershop.CartItem item = new()
+                    cymbalshop.CartItem item = new()
                     {
                         ProductId = reader.GetFieldValue<string>("productId"),
                         Quantity = reader.GetFieldValue<int>("quantity")

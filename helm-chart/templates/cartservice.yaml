@@ -167,9 +167,9 @@ spec:
     to:
     - operation:
         paths:
-        - /hipstershop.CartService/AddItem
-        - /hipstershop.CartService/GetCart
-        - /hipstershop.CartService/EmptyCart
+        - /cymbalshop.CartService/AddItem
+        - /cymbalshop.CartService/GetCart
+        - /cymbalshop.CartService/EmptyCart
         methods:
         - POST
         ports:

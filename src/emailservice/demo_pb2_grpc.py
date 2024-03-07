@@ -33,17 +33,17 @@ class CartServiceStub(object):
             channel: A grpc.Channel.
         """
         self.AddItem = channel.unary_unary(
-                '/hipstershop.CartService/AddItem',
+                '/cymbalshop.CartService/AddItem',
                 request_serializer=demo__pb2.AddItemRequest.SerializeToString,
                 response_deserializer=demo__pb2.Empty.FromString,
                 )
         self.GetCart = channel.unary_unary(
-                '/hipstershop.CartService/GetCart',
+                '/cymbalshop.CartService/GetCart',
                 request_serializer=demo__pb2.GetCartRequest.SerializeToString,
                 response_deserializer=demo__pb2.Cart.FromString,
                 )
         self.EmptyCart = channel.unary_unary(
-                '/hipstershop.CartService/EmptyCart',
+                '/cymbalshop.CartService/EmptyCart',
                 request_serializer=demo__pb2.EmptyCartRequest.SerializeToString,
                 response_deserializer=demo__pb2.Empty.FromString,
                 )
@@ -92,7 +92,7 @@ def add_CartServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.CartService', rpc_method_handlers)
+            'cymbalshop.CartService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -113,7 +113,7 @@ class CartService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.CartService/AddItem',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.CartService/AddItem',
             demo__pb2.AddItemRequest.SerializeToString,
             demo__pb2.Empty.FromString,
             options, channel_credentials,
@@ -130,7 +130,7 @@ class CartService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.CartService/GetCart',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.CartService/GetCart',
             demo__pb2.GetCartRequest.SerializeToString,
             demo__pb2.Cart.FromString,
             options, channel_credentials,
@@ -147,7 +147,7 @@ class CartService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.CartService/EmptyCart',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.CartService/EmptyCart',
             demo__pb2.EmptyCartRequest.SerializeToString,
             demo__pb2.Empty.FromString,
             options, channel_credentials,
@@ -166,7 +166,7 @@ class RecommendationServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListRecommendations = channel.unary_unary(
-                '/hipstershop.RecommendationService/ListRecommendations',
+                '/cymbalshop.RecommendationService/ListRecommendations',
                 request_serializer=demo__pb2.ListRecommendationsRequest.SerializeToString,
                 response_deserializer=demo__pb2.ListRecommendationsResponse.FromString,
                 )
@@ -193,7 +193,7 @@ def add_RecommendationServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.RecommendationService', rpc_method_handlers)
+            'cymbalshop.RecommendationService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -214,7 +214,7 @@ class RecommendationService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.RecommendationService/ListRecommendations',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.RecommendationService/ListRecommendations',
             demo__pb2.ListRecommendationsRequest.SerializeToString,
             demo__pb2.ListRecommendationsResponse.FromString,
             options, channel_credentials,
@@ -233,17 +233,17 @@ class ProductCatalogServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListProducts = channel.unary_unary(
-                '/hipstershop.ProductCatalogService/ListProducts',
+                '/cymbalshop.ProductCatalogService/ListProducts',
                 request_serializer=demo__pb2.Empty.SerializeToString,
                 response_deserializer=demo__pb2.ListProductsResponse.FromString,
                 )
         self.GetProduct = channel.unary_unary(
-                '/hipstershop.ProductCatalogService/GetProduct',
+                '/cymbalshop.ProductCatalogService/GetProduct',
                 request_serializer=demo__pb2.GetProductRequest.SerializeToString,
                 response_deserializer=demo__pb2.Product.FromString,
                 )
         self.SearchProducts = channel.unary_unary(
-                '/hipstershop.ProductCatalogService/SearchProducts',
+                '/cymbalshop.ProductCatalogService/SearchProducts',
                 request_serializer=demo__pb2.SearchProductsRequest.SerializeToString,
                 response_deserializer=demo__pb2.SearchProductsResponse.FromString,
                 )
@@ -292,7 +292,7 @@ def add_ProductCatalogServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.ProductCatalogService', rpc_method_handlers)
+            'cymbalshop.ProductCatalogService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -313,7 +313,7 @@ class ProductCatalogService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.ProductCatalogService/ListProducts',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.ProductCatalogService/ListProducts',
             demo__pb2.Empty.SerializeToString,
             demo__pb2.ListProductsResponse.FromString,
             options, channel_credentials,
@@ -330,7 +330,7 @@ class ProductCatalogService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.ProductCatalogService/GetProduct',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.ProductCatalogService/GetProduct',
             demo__pb2.GetProductRequest.SerializeToString,
             demo__pb2.Product.FromString,
             options, channel_credentials,
@@ -347,7 +347,7 @@ class ProductCatalogService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.ProductCatalogService/SearchProducts',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.ProductCatalogService/SearchProducts',
             demo__pb2.SearchProductsRequest.SerializeToString,
             demo__pb2.SearchProductsResponse.FromString,
             options, channel_credentials,
@@ -366,12 +366,12 @@ class ShippingServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetQuote = channel.unary_unary(
-                '/hipstershop.ShippingService/GetQuote',
+                '/cymbalshop.ShippingService/GetQuote',
                 request_serializer=demo__pb2.GetQuoteRequest.SerializeToString,
                 response_deserializer=demo__pb2.GetQuoteResponse.FromString,
                 )
         self.ShipOrder = channel.unary_unary(
-                '/hipstershop.ShippingService/ShipOrder',
+                '/cymbalshop.ShippingService/ShipOrder',
                 request_serializer=demo__pb2.ShipOrderRequest.SerializeToString,
                 response_deserializer=demo__pb2.ShipOrderResponse.FromString,
                 )
@@ -409,7 +409,7 @@ def add_ShippingServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.ShippingService', rpc_method_handlers)
+            'cymbalshop.ShippingService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -430,7 +430,7 @@ class ShippingService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.ShippingService/GetQuote',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.ShippingService/GetQuote',
             demo__pb2.GetQuoteRequest.SerializeToString,
             demo__pb2.GetQuoteResponse.FromString,
             options, channel_credentials,
@@ -447,7 +447,7 @@ class ShippingService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.ShippingService/ShipOrder',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.ShippingService/ShipOrder',
             demo__pb2.ShipOrderRequest.SerializeToString,
             demo__pb2.ShipOrderResponse.FromString,
             options, channel_credentials,
@@ -466,12 +466,12 @@ class CurrencyServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetSupportedCurrencies = channel.unary_unary(
-                '/hipstershop.CurrencyService/GetSupportedCurrencies',
+                '/cymbalshop.CurrencyService/GetSupportedCurrencies',
                 request_serializer=demo__pb2.Empty.SerializeToString,
                 response_deserializer=demo__pb2.GetSupportedCurrenciesResponse.FromString,
                 )
         self.Convert = channel.unary_unary(
-                '/hipstershop.CurrencyService/Convert',
+                '/cymbalshop.CurrencyService/Convert',
                 request_serializer=demo__pb2.CurrencyConversionRequest.SerializeToString,
                 response_deserializer=demo__pb2.Money.FromString,
                 )
@@ -509,7 +509,7 @@ def add_CurrencyServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.CurrencyService', rpc_method_handlers)
+            'cymbalshop.CurrencyService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -530,7 +530,7 @@ class CurrencyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.CurrencyService/GetSupportedCurrencies',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.CurrencyService/GetSupportedCurrencies',
             demo__pb2.Empty.SerializeToString,
             demo__pb2.GetSupportedCurrenciesResponse.FromString,
             options, channel_credentials,
@@ -547,7 +547,7 @@ class CurrencyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.CurrencyService/Convert',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.CurrencyService/Convert',
             demo__pb2.CurrencyConversionRequest.SerializeToString,
             demo__pb2.Money.FromString,
             options, channel_credentials,
@@ -566,7 +566,7 @@ class PaymentServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Charge = channel.unary_unary(
-                '/hipstershop.PaymentService/Charge',
+                '/cymbalshop.PaymentService/Charge',
                 request_serializer=demo__pb2.ChargeRequest.SerializeToString,
                 response_deserializer=demo__pb2.ChargeResponse.FromString,
                 )
@@ -593,7 +593,7 @@ def add_PaymentServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.PaymentService', rpc_method_handlers)
+            'cymbalshop.PaymentService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -614,7 +614,7 @@ class PaymentService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.PaymentService/Charge',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.PaymentService/Charge',
             demo__pb2.ChargeRequest.SerializeToString,
             demo__pb2.ChargeResponse.FromString,
             options, channel_credentials,
@@ -633,7 +633,7 @@ class EmailServiceStub(object):
             channel: A grpc.Channel.
         """
         self.SendOrderConfirmation = channel.unary_unary(
-                '/hipstershop.EmailService/SendOrderConfirmation',
+                '/cymbalshop.EmailService/SendOrderConfirmation',
                 request_serializer=demo__pb2.SendOrderConfirmationRequest.SerializeToString,
                 response_deserializer=demo__pb2.Empty.FromString,
                 )
@@ -660,7 +660,7 @@ def add_EmailServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.EmailService', rpc_method_handlers)
+            'cymbalshop.EmailService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -681,7 +681,7 @@ class EmailService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.EmailService/SendOrderConfirmation',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.EmailService/SendOrderConfirmation',
             demo__pb2.SendOrderConfirmationRequest.SerializeToString,
             demo__pb2.Empty.FromString,
             options, channel_credentials,
@@ -700,7 +700,7 @@ class CheckoutServiceStub(object):
             channel: A grpc.Channel.
         """
         self.PlaceOrder = channel.unary_unary(
-                '/hipstershop.CheckoutService/PlaceOrder',
+                '/cymbalshop.CheckoutService/PlaceOrder',
                 request_serializer=demo__pb2.PlaceOrderRequest.SerializeToString,
                 response_deserializer=demo__pb2.PlaceOrderResponse.FromString,
                 )
@@ -727,7 +727,7 @@ def add_CheckoutServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.CheckoutService', rpc_method_handlers)
+            'cymbalshop.CheckoutService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -748,7 +748,7 @@ class CheckoutService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.CheckoutService/PlaceOrder',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.CheckoutService/PlaceOrder',
             demo__pb2.PlaceOrderRequest.SerializeToString,
             demo__pb2.PlaceOrderResponse.FromString,
             options, channel_credentials,
@@ -767,7 +767,7 @@ class AdServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetAds = channel.unary_unary(
-                '/hipstershop.AdService/GetAds',
+                '/cymbalshop.AdService/GetAds',
                 request_serializer=demo__pb2.AdRequest.SerializeToString,
                 response_deserializer=demo__pb2.AdResponse.FromString,
                 )
@@ -794,7 +794,7 @@ def add_AdServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'hipstershop.AdService', rpc_method_handlers)
+            'cymbalshop.AdService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -815,7 +815,7 @@ class AdService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hipstershop.AdService/GetAds',
+        return grpc.experimental.unary_unary(request, target, '/cymbalshop.AdService/GetAds',
             demo__pb2.AdRequest.SerializeToString,
             demo__pb2.AdResponse.FromString,
             options, channel_credentials,

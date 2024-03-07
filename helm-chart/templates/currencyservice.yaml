@@ -178,8 +178,8 @@ spec:
     to:
     - operation:
         paths:
-        - /hipstershop.CurrencyService/Convert
-        - /hipstershop.CurrencyService/GetSupportedCurrencies
+        - /cymbalshop.CurrencyService/Convert
+        - /cymbalshop.CurrencyService/GetSupportedCurrencies
         methods:
         - POST
         ports:

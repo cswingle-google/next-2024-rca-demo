@@ -70,11 +70,11 @@ else {
 
 
 const path = require('path');
-const HipsterShopServer = require('./server');
+const cymbalShopServer = require('./server');
 
 const PORT = process.env['PORT'];
 const PROTO_PATH = path.join(__dirname, '/proto/');
 
-const server = new HipsterShopServer(PROTO_PATH, PORT, always_error);
+const server = new cymbalShopServer(PROTO_PATH, PORT, always_error);
 
 server.listen();

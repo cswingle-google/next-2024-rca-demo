@@ -94,10 +94,10 @@ namespace cartservice.cartstore
         }
 
 
-        public async Task<Hipstershop.Cart> GetCartAsync(string userId)
+        public async Task<cymbalshop.Cart> GetCartAsync(string userId)
         {
             Console.WriteLine($"GetCartAsync called for userId={userId}");
-            Hipstershop.Cart cart = new();
+            cymbalshop.Cart cart = new();
             cart.UserId = userId;
             try
             {
@@ -109,7 +109,7 @@ namespace cartservice.cartstore
                 {
                     while (await reader.ReadAsync())
                     {
-                        Hipstershop.CartItem item = new()
+                        cymbalshop.CartItem item = new()
                         {
                             ProductId = reader.GetString(0),
                             Quantity = reader.GetInt32(1)
