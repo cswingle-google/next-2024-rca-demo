@@ -28,3 +28,4 @@ resources:
 - shippingservice.yaml
 components:
 - ../kustomize/components/service-mesh-istio  # Enable Istio
+- ../kustomize/components/cymbal-branding
