@@ -21,13 +21,15 @@ const charge = require('./charge');
 const logger = require('./logger')
 
 class HipsterShopServer {
-  constructor(protoRoot, port = HipsterShopServer.PORT) {
+  constructor(protoRoot, port = HipsterShopServer.PORT, always_error = false) {
     this.port = port;
 
     this.packages = {
       hipsterShop: this.loadProto(path.join(protoRoot, 'demo.proto')),
       health: this.loadProto(path.join(protoRoot, 'grpc/health/v1/health.proto'))
     };
+
+    this.always_error = always_error;
 
     this.server = new grpc.Server();
     this.loadAllProtos(protoRoot);
@@ -41,7 +43,7 @@ class HipsterShopServer {
   static ChargeServiceHandler(call, callback) {
     try {
       logger.info(`PaymentService#Charge invoked with request ${JSON.stringify(call.request)}`);
-      const response = charge(call.request);
+      const response = charge(call.request, this.always_error);
       callback(null, response);
     } catch (err) {
       console.warn(err);
@@ -55,7 +57,7 @@ class HipsterShopServer {
 
 
   listen() {
-    const server = this.server 
+    const server = this.server
     const port = this.port
     server.bindAsync(
       `[::]:${port}`,

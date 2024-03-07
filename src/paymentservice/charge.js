@@ -26,6 +26,13 @@ const logger = pino({
   }
 });
 
+class CreditCardChargeFailure extends Error {
+  constructor (message) {
+    super(message);
+    this.code = 500; // Generic server error
+  }
+}
+
 
 class CreditCardError extends Error {
   constructor (message) {
@@ -58,7 +65,10 @@ class ExpiredCreditCard extends CreditCardError {
  * @param {*} request
  * @return transaction_id - a random uuid.
  */
-module.exports = function charge (request) {
+module.exports = function charge (request, alwaysError = false) {
+  if (alwaysError) {
+    throw new CreditCardChargeFailure('unable to charge credit card: insufficient funds');
+  }
   const { amount, credit_card: creditCard } = request;
   const cardNumber = creditCard.credit_card_number;
   const cardInfo = cardValidator(cardNumber);

@@ -18,7 +18,7 @@
 
 const logger = require('./logger')
 
-if(process.env.DISABLE_PROFILER) {
+if (process.env.DISABLE_PROFILER) {
   logger.info("Profiler disabled.")
 }
 else {
@@ -31,8 +31,15 @@ else {
   });
 }
 
+let always_error;
+if (process.env.PAYMENT_ALWAYS_ERROR) {
+  logger.warn("Payment service will always return error 500 CreditCardChargeFailure.")
+  always_error = true;
+} else {
+  always_error = false;
+}
 
-if(process.env.ENABLE_TRACING == "1") {
+if (process.env.ENABLE_TRACING == "1") {
   logger.info("Tracing enabled.")
   const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
   const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
@@ -50,7 +57,7 @@ if(process.env.ENABLE_TRACING == "1") {
 
   const collectorUrl = process.env.COLLECTOR_SERVICE_ADDR
 
-  provider.addSpanProcessor(new SimpleSpanProcessor(new OTLPTraceExporter({url: collectorUrl})));
+  provider.addSpanProcessor(new SimpleSpanProcessor(new OTLPTraceExporter({ url: collectorUrl })));
   provider.register();
 
   registerInstrumentations({
@@ -68,6 +75,6 @@ const HipsterShopServer = require('./server');
 const PORT = process.env['PORT'];
 const PROTO_PATH = path.join(__dirname, '/proto/');
 
-const server = new HipsterShopServer(PROTO_PATH, PORT);
+const server = new HipsterShopServer(PROTO_PATH, PORT, always_error);
 
 server.listen();
