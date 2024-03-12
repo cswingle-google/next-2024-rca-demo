@@ -36,21 +36,21 @@ namespace cartservice.cartstore
 
             try
             {
-                cymbalshop.Cart cart;
+                Cymbalshop.Cart cart;
                 var value = await _cache.GetAsync(userId);
                 if (value == null)
                 {
-                    cart = new cymbalshop.Cart();
+                    cart = new Cymbalshop.Cart();
                     cart.UserId = userId;
-                    cart.Items.Add(new cymbalshop.CartItem { ProductId = productId, Quantity = quantity });
+                    cart.Items.Add(new Cymbalshop.CartItem { ProductId = productId, Quantity = quantity });
                 }
                 else
                 {
-                    cart = cymbalshop.Cart.Parser.ParseFrom(value);
+                    cart = Cymbalshop.Cart.Parser.ParseFrom(value);
                     var existingItem = cart.Items.SingleOrDefault(i => i.ProductId == productId);
                     if (existingItem == null)
                     {
-                        cart.Items.Add(new cymbalshop.CartItem { ProductId = productId, Quantity = quantity });
+                        cart.Items.Add(new Cymbalshop.CartItem { ProductId = productId, Quantity = quantity });
                     }
                     else
                     {
@@ -71,7 +71,7 @@ namespace cartservice.cartstore
 
             try
             {
-                var cart = new cymbalshop.Cart();
+                var cart = new Cymbalshop.Cart();
                 await _cache.SetAsync(userId, cart.ToByteArray());
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace cartservice.cartstore
             }
         }
 
-        public async Task<cymbalshop.Cart> GetCartAsync(string userId)
+        public async Task<Cymbalshop.Cart> GetCartAsync(string userId)
         {
             Console.WriteLine($"GetCartAsync called with userId={userId}");
 
@@ -91,11 +91,11 @@ namespace cartservice.cartstore
 
                 if (value != null)
                 {
-                    return cymbalshop.Cart.Parser.ParseFrom(value);
+                    return Cymbalshop.Cart.Parser.ParseFrom(value);
                 }
 
                 // We decided to return empty cart in cases when user wasn't in the cache before
-                return new cymbalshop.Cart();
+                return new Cymbalshop.Cart();
             }
             catch (Exception ex)
             {
