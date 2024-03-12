@@ -17,11 +17,11 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using cartservice.cartstore;
-using cymbalshop;
+using Cymbalshop;
 
 namespace cartservice.services
 {
-    public class CartService : cymbalshop.CartService.CartServiceBase
+    public class CartService : Cymbalshop.CartService.CartServiceBase
     {
         private readonly static Empty Empty = new Empty();
         private readonly ICartStore _cartStore;
