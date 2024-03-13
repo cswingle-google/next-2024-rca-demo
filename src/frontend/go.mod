@@ -1,4 +1,4 @@
-module github.com/GoogleCloudPlatform/microservices-demo/src/frontend
+module github.com/cswingle-google/next-2024-rca-demo/src/frontend
 
 go 1.19
 

@@ -30,8 +30,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	pb "github.com/GoogleCloudPlatform/microservices-demo/src/frontend/genproto"
-	"github.com/GoogleCloudPlatform/microservices-demo/src/frontend/money"
+	pb "github.com/cswingle-google/next-2024-rca-demo/src/frontend/genproto"
+	"github.com/cswingle-google/next-2024-rca-demo/src/frontend/money"
 )
 
 type platformDetails struct {

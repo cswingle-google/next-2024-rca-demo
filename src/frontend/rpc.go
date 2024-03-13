@@ -18,7 +18,7 @@ import (
 	"context"
 	"time"
 
-	pb "github.com/GoogleCloudPlatform/microservices-demo/src/frontend/genproto"
+	pb "github.com/cswingle-google/next-2024-rca-demo/src/frontend/genproto"
 
 	"github.com/pkg/errors"
 )

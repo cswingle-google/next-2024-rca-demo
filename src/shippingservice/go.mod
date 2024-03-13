@@ -1,4 +1,4 @@
-module github.com/GoogleCloudPlatform/microservices-demo/src/shippingservice
+module github.com/cswingle-google/next-2024-rca-demo/src/shippingservice
 
 go 1.19
 
