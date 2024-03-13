@@ -46,7 +46,7 @@ class cymbalShopServer {
       const response = charge(call.request, this.always_error);
       callback(null, response);
     } catch (err) {
-      console.warn(err);
+      logger.error(err);
       callback(err);
     }
   }
