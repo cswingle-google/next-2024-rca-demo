@@ -16,6 +16,8 @@ syntax = "proto3";
 
 package cymbalshop;
 
+option go_package = "pkg/cymbalshop";
+
 // -----------------Cart service-----------------
 
 service CartService {

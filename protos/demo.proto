@@ -16,7 +16,7 @@ syntax = "proto3";
 
 package cymbalshop;
 
-option go_package = "github.com/GoogleCloudPlatform/microservices-demo";
+option go_package = "pkg/cymbalshop";
 
 // -----------------Cart service-----------------
 
