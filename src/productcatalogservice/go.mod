@@ -1,4 +1,4 @@
-module github.com/cswingle-google/next-2024-rca-demo/src/productcatalogservice
+module github.com/GoogleCloudPlatform/microservices-demo/src/productcatalogservice
 
 go 1.19
 
