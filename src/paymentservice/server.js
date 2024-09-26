@@ -20,16 +20,14 @@ const charge = require('./charge');
 
 const logger = require('./logger')
 
-class cymbalShopServer {
-  constructor(protoRoot, port = cymbalShopServer.PORT, always_error = false) {
+class HipsterShopServer {
+  constructor(protoRoot, port = HipsterShopServer.PORT) {
     this.port = port;
 
     this.packages = {
-      cymbalShop: this.loadProto(path.join(protoRoot, 'demo.proto')),
+      hipsterShop: this.loadProto(path.join(protoRoot, 'demo.proto')),
       health: this.loadProto(path.join(protoRoot, 'grpc/health/v1/health.proto'))
     };
-
-    this.always_error = always_error;
 
     this.server = new grpc.Server();
     this.loadAllProtos(protoRoot);
@@ -43,10 +41,10 @@ class cymbalShopServer {
   static ChargeServiceHandler(call, callback) {
     try {
       logger.info(`PaymentService#Charge invoked with request ${JSON.stringify(call.request)}`);
-      const response = charge(call.request, this.always_error);
+      const response = charge(call.request);
       callback(null, response);
     } catch (err) {
-      logger.error(err);
+      console.warn(err);
       callback(err);
     }
   }
@@ -57,7 +55,7 @@ class cymbalShopServer {
 
 
   listen() {
-    const server = this.server
+    const server = this.server 
     const port = this.port
     server.bindAsync(
       `[::]:${port}`,
@@ -84,25 +82,25 @@ class cymbalShopServer {
   }
 
   loadAllProtos(protoRoot) {
-    const cymbalShopPackage = this.packages.cymbalShop.cymbalshop;
+    const hipsterShopPackage = this.packages.hipsterShop.hipstershop;
     const healthPackage = this.packages.health.grpc.health.v1;
 
     this.server.addService(
-      cymbalShopPackage.PaymentService.service,
+      hipsterShopPackage.PaymentService.service,
       {
-        charge: cymbalShopServer.ChargeServiceHandler.bind(this)
+        charge: HipsterShopServer.ChargeServiceHandler.bind(this)
       }
     );
 
     this.server.addService(
       healthPackage.Health.service,
       {
-        check: cymbalShopServer.CheckHandler.bind(this)
+        check: HipsterShopServer.CheckHandler.bind(this)
       }
     );
   }
 }
 
-cymbalShopServer.PORT = process.env.PORT;
+HipsterShopServer.PORT = process.env.PORT;
 
-module.exports = cymbalShopServer;
+module.exports = HipsterShopServer;
