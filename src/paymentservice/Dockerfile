@@ -14,8 +14,6 @@
 
 FROM node:20.17.0-alpine@sha256:2d07db07a2df6830718ae2a47db6fedce6745f5bcd174c398f2acdda90a11c03 AS builder
 
-RUN chmod -R 755 /usr/src/app
-
 # Some packages (e.g. @google-cloud/profiler) require additional
 # deps for post-install scripts
 RUN apk add --update --no-cache \
@@ -26,6 +24,8 @@ RUN apk add --update --no-cache \
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+
+RUN chmod -R 755 /usr/src/app
 
 RUN npm install --only=production
 
