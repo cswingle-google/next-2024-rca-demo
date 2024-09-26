@@ -25,8 +25,6 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN chmod -R 755 /usr/src/app
-
 RUN npm install --only=production
 
 FROM alpine:3.20.3@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d
@@ -38,6 +36,8 @@ WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 COPY . .
+
+RUN chmod -R 755 /usr/src/app
 
 EXPOSE 50051
 
